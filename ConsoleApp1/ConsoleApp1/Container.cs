@@ -3,10 +3,10 @@
 public abstract class Container
 {
     private float _mass;
-    public float Mass
+    public virtual float Mass
     {
         get => this._mass;
-        private set
+        protected set
         {
             if (value > this.MaximumPayload)
             {
@@ -47,8 +47,8 @@ public abstract class Container
         this.Mass = 0;
     }
 
-    public void LoadAdditionalCargo(float weight)
+    public virtual void LoadAdditionalCargo(Cargo.Cargo cargo)
     {
-        this.Mass += weight;
+        this.Mass += cargo.Weight;
     }
 }
