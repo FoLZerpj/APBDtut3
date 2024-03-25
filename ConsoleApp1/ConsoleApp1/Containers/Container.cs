@@ -1,6 +1,6 @@
 ﻿namespace ConsoleApp1;
 
-public abstract class Container
+public abstract class Container(float height, float tareWeight, float depth, float maximumPayload)
 {
     private float _mass;
     public virtual float Mass
@@ -17,10 +17,10 @@ public abstract class Container
         }
     }
 
-    public float Height { get; private set; }
-    public float TareWeight { get; private set; }
-    public float Depth { get; private set; }
-    public float MaximumPayload { get; private set; }
+    public float Height => height;
+    public float TareWeight => tareWeight;
+    public float Depth => depth;
+    public float MaximumPayload => maximumPayload;
 
     protected abstract char ContainerType { get; }
 

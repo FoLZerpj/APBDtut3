@@ -1,6 +1,6 @@
 ﻿namespace ConsoleApp1;
 
-public class GasContainer : Container, IHazardNotifier
+public class GasContainer(float height, float tareWeight, float depth, float maximumPayload) : Container(height, tareWeight, depth, maximumPayload), IHazardNotifier
 {
     public event EventHandler<HazardEvent> HazardEventOccured;
     

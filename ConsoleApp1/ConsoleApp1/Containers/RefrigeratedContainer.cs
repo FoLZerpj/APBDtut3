@@ -2,16 +2,11 @@
 
 namespace ConsoleApp1;
 
-public class RefrigeratedContainer : Container
+public class RefrigeratedContainer(float height, float tareWeight, float depth, float maximumPayload, Type typeOfStoredProduct, float temperature) : Container(height, tareWeight, depth, maximumPayload)
 {
     protected override char ContainerType => 'C';
-    public Type TypeOfStoredProduct { get; private set; }
-    public float Temperature { get; private set; }
-
-    public RefrigeratedContainer(Type typeOfStoredProduct)
-    {
-        this.TypeOfStoredProduct = typeOfStoredProduct;
-    }
+    public Type TypeOfStoredProduct => typeOfStoredProduct;
+    public float Temperature => temperature;
 
     public void Load(RefrigeratedCargo cargo)
     {

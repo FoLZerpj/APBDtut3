@@ -2,7 +2,7 @@
 
 namespace ConsoleApp1;
 
-public class LiquidContainer : Container, IHazardNotifier
+public class LiquidContainer(float height, float tareWeight, float depth, float maximumPayload) : Container(height, tareWeight, depth, maximumPayload), IHazardNotifier
 {
     public event EventHandler<HazardEvent> HazardEventOccured;
     protected override char ContainerType => 'L';
