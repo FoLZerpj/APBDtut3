@@ -2,7 +2,11 @@
 
 public interface IHazardNotifier
 {
-    //TODO: This interface allows for sending a text notification during
-    //the occurrence of a hazardous situation along with
-    //information about the container number.
+    public event EventHandler<HazardEvent> HazardEventOccured;
+}
+
+public readonly struct HazardEvent(string information, string containerSerialNumber)
+{
+    public string Information => information;
+    public string ContainerSerialNumber => containerSerialNumber;
 }

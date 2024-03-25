@@ -4,6 +4,7 @@ namespace ConsoleApp1;
 
 public class LiquidContainer : Container, IHazardNotifier
 {
+    public event EventHandler<HazardEvent> HazardEventOccured;
     protected override char ContainerType => 'L';
 
     private bool _isHazardous = false;
@@ -16,6 +17,7 @@ public class LiquidContainer : Container, IHazardNotifier
             float maxCap = _isHazardous ? 0.5f : 0.9f;
             if (base.Mass + value > maxCap * this.MaximumPayload)
             {
+                this.HazardEventOccured?.Invoke(this, new HazardEvent("Attempt to add cargo over the maximum capacity", this.SerialNumber));
                 throw new DangerousOperationException();
             }
 

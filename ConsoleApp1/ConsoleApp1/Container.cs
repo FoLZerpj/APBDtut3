@@ -34,13 +34,8 @@ public abstract class Container
         }
     }
 
-    private uint _serialNumber;
+    private readonly uint _serialNumber = _NextSerialNumber;
     public string SerialNumber => $"KON-{ContainerType}-{_serialNumber}";
-
-    protected Container()
-    {
-        this._serialNumber = _NextSerialNumber;
-    }
 
     public virtual void EmptyCargo()
     {
