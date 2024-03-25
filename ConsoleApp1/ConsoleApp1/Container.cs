@@ -42,7 +42,7 @@ public abstract class Container
         this._serialNumber = _NextSerialNumber;
     }
 
-    public void EmptyCargo()
+    public virtual void EmptyCargo()
     {
         this.Mass = 0;
     }
