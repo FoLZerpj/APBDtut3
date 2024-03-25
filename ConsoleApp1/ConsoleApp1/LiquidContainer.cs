@@ -1,17 +1,19 @@
-﻿namespace ConsoleApp1;
+﻿using ConsoleApp1.Cargo;
+
+namespace ConsoleApp1;
 
 public class LiquidContainer : Container, IHazardNotifier
 {
     protected override char ContainerType => 'L';
 
-    private bool isHazardous = false;
+    private bool _isHazardous = false;
 
     public override float Mass
     {
         get => base.Mass;
         protected set
         {
-            float maxCap = isHazardous ? 0.5f : 0.9f;
+            float maxCap = _isHazardous ? 0.5f : 0.9f;
             if (base.Mass + value > maxCap * this.MaximumPayload)
             {
                 throw new DangerousOperationException();
@@ -21,12 +23,14 @@ public class LiquidContainer : Container, IHazardNotifier
         }
     }
 
-    public override void LoadAdditionalCargo(Cargo.Cargo cargo)
+    public void Load(HazardousCargo cargo)
     {
-        base.LoadAdditionalCargo(cargo);
-        if (cargo.IsHazardous)
-        {
-            this.isHazardous = true;
-        }
+        this._isHazardous = true;
+        this.LoadAdditionalCargo(cargo);
+    }
+    
+    public void Load(Cargo.Cargo cargo)
+    {
+        this.LoadAdditionalCargo(cargo);
     }
 }

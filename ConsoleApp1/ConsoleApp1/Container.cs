@@ -47,7 +47,7 @@ public abstract class Container
         this.Mass = 0;
     }
 
-    public virtual void LoadAdditionalCargo(Cargo.Cargo cargo)
+    protected virtual void LoadAdditionalCargo(Cargo.Cargo cargo)
     {
         this.Mass += cargo.Weight;
     }
