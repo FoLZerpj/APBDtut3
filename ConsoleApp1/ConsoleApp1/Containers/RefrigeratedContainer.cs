@@ -23,4 +23,11 @@ public class RefrigeratedContainer(float height, float tareWeight, float depth, 
         
         this.LoadAdditionalCargo(cargo);
     }
+    
+    public override void Print()
+    {
+        Console.Out.WriteLine($"Liquid Container {this.SerialNumber}:");
+        base.Print();
+        Console.Out.WriteLine($"   Container Temperature: {this.Temperature} C\u00b0");
+    }
 }

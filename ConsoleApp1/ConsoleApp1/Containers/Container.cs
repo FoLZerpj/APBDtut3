@@ -46,4 +46,9 @@ public abstract class Container(float height, float tareWeight, float depth, flo
     {
         this.Mass += cargo.Weight;
     }
+
+    public virtual void Print()
+    {
+        Console.Out.WriteLine($"   Height: {this.Height} cm, Tare Weight: {this.TareWeight} kg, Depth: {this.Depth} cm, Mass: {this.Mass} kg");
+    }
 }

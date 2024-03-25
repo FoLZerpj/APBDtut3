@@ -17,4 +17,11 @@ public class GasContainer(float height, float tareWeight, float depth, float max
     {
         this.Mass = (float)Math.Max(0.05 * this.MaximumPayload, this.Mass);
     }
+
+    public override void Print()
+    {
+        Console.Out.WriteLine($"Gas Container {this.SerialNumber}:");
+        base.Print();
+        Console.Out.WriteLine($"   Pressure: {this.Pressure} atm");
+    }
 }

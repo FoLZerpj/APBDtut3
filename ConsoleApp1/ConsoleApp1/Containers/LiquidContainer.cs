@@ -35,4 +35,11 @@ public class LiquidContainer(float height, float tareWeight, float depth, float 
     {
         this.LoadAdditionalCargo(cargo);
     }
+    
+    public override void Print()
+    {
+        Console.Out.WriteLine($"Liquid Container {this.SerialNumber}:");
+        base.Print();
+        Console.Out.WriteLine($"   Is Cargo Hazardous: {this._isHazardous}");
+    }
 }
